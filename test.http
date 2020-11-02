@@ -1,4 +1,4 @@
-@url=http://localhost:8888/api
+@url=http://localhost:8090/api
 @jsonContent = Content-Type: application/json
 
 ### 所有用户
