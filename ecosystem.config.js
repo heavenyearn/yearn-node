@@ -22,8 +22,8 @@ module.exports = {
       user : 'ubuntu',
       host : '49.232.242.187',
       ref  : 'origin/master',
-      repo : 'git@github.com:repo.git',
-      path : '/var/www/production',
+      repo : 'git@github.com:heavenyearn/yearnNode.git',
+      path : '/yearn',
       'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
     }
   }
