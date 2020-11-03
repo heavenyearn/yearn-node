@@ -31,8 +31,8 @@ app.post('/api/register',async (req,res) => {
         password
     })
     res.send({
-        code: 1,
-        msg: 'success'
+        msg: '注册成功',
+        code: 1
     })
 })
 app.post('/api/login',async (req,res) => {
@@ -58,8 +58,12 @@ app.post('/api/login',async (req,res) => {
         id : String(user._id),
     },SECRETCODE)
     res.send({
-        user,
-        token
+        msg:'登录成功',
+        code:1,
+        data:{
+            token,
+            username
+        }
     });
 })
 
