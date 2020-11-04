@@ -4,6 +4,10 @@
 ### 所有用户
 get {{url}}/users
 
+### 所有注册码
+get {{url}}/emailcode
+
+
 ### 注册
 post {{url}}/register
 {{jsonContent}}
@@ -25,3 +29,10 @@ post {{url}}/login
 get {{url}}/profile
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmOWZhMmU5MDQyOWEzMjkzZmFlZDgxMCIsImlhdCI6MTYwNDI5ODgwMH0.3oKP9jX1DX4ARAVI8WCgCSKAG1t4Dz0IwOdhpBWvowI
 
+### 发送邮件
+get {{url}}/email
+{{jsonContent}}
+
+{
+    "email": "1650877728@qq.com"
+}
