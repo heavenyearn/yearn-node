@@ -1,6 +1,5 @@
 const { User, EmailCode } = require('./models')
 const express = require('express');
-const cors = require('cors')
 const jwt = require('jsonwebtoken');
 const { SECRETCODE } = require('./secretCode');
 const { getSixRandom } = require('./commonMethod');
@@ -8,7 +7,6 @@ const nodemailer = require('./nodemailer');
 
 const app = express();
 app.use(express.json());
-app.use(cors);
 
 // 鉴权部分
 const auth = async (req,res,next) => {
