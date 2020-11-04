@@ -1,4 +1,5 @@
 const { model } = require('mongoose');
+const { EMAILPASS } =require('./secretCode')
 const nodemailer = require('nodemailer');
 
 const config = {
@@ -6,7 +7,7 @@ const config = {
     port: 465,
     auth : {
         user: 'yearn_mail@163.com',
-        pass: 'PROMXAGTFIVOGYQB',
+        pass: EMAILPASS,
     }
 };
 
