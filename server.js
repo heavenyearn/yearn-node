@@ -7,7 +7,18 @@ const nodemailer = require('./nodemailer');
 
 const app = express();
 app.use(express.json());
+app.all('*',function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
+    res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
 
+    if (req.method == 'OPTIONS') {
+        res.send(200); /让options请求快速返回/
+    }
+    else {
+        next();
+    }
+});
 // 鉴权部分
 const auth = async (req,res,next) => {
     const raw = req.headers.authorization.split(' ').pop();
@@ -171,8 +182,4 @@ app.get('/api/email', async (req,res) => {
         msg:'验证码已发送',
         code:1
     })
-})
-
-app.listen(8090,() => {
-    console.log('http://localhost:8090')
 })
