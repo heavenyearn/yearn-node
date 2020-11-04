@@ -13,11 +13,25 @@ const UserScheme = new mongoose.Schema({
         set(val){
             return require('bcrypt').hashSync(val,10);
         }
-    }
+    },
+    email : { type:String, unique:true }
 })
+
+const EmailCodeScheme = new mongoose.Schema({
+    email:  { type:String ,unique:true},
+    code:  { type:String },
+    date: { type:Date},
+    isLive :  { type:String },
+})
+
+const EmailCode = mongoose.model('EmailCode',EmailCodeScheme)
 
 const User = mongoose.model('User',UserScheme)
 
+// User.db.dropCollection('users');
+// EmailCode.db.dropCollection('emailcodes');
+
 module.exports = {
-    User
+    User,
+    EmailCode
 };
